@@ -1,51 +1,26 @@
-When(/^I am on Appimation login page/) do
+When(/^I Am On Appimation Home Page/) do
   visit('/')
+  find(:id, 'start_button').visible?
+  find(:id, 'login-b').visible?
+  find(:id, 'signup-b').visible?
+end
 
-  test = find('#start_button',text: "Try now")
-  puts "#{test.text}"
+Then(/^I Click Login/) do
+  find(:id, 'login-b').click
+end
 
-  test2 = find('#signup-b',text: "Sign Up")
-  puts "#{test2.text}"
+Then(/^I Enter (.*) in Login Email Field/) do |email|
+  find(:xpath, '//div[@id = "login"]/descendant::input[@name = "login"]').send_keys email
+end
 
-  #Contact Us
-  find(:xpath, '//*[@id="cta"]')
-  puts "Contact Section"
+Then(/^I Enter (.*) in Login Password Field/) do |password|
+  find(:xpath, '//div[@id = "login"]/descendant::input[@name = "password"]').send_keys password
+end
 
-  find(:xpath, '//*[@id="name"]')
-  puts "Contact Us: Name"
+Then(/^I Click on Login Button/) do
+  find(:xpath, '//*[@id="login"]/form/button').click
+end
 
-  find(:xpath, '//*[@id="contactus-message"]')
-  puts "Contact Us: Message"
-
-  find(:xpath, '//*[@id="email"]')
-  puts "Contact Us: Email"
-
-  find(:xpath, '//*[@id="contactus-button"]')
-  puts "Contact Us: Send Button"
-
-  #Feature Fields
-  all(:xpath, "//h3[contains(text(), 'Chain requests with reusable data')]/parent::section/descendant::img").each do |el|
-  puts el
-  end
-
-  all(:xpath, "//h3[contains(text(), 'Advanced features')]/parent::section/descendant::img").each do |el|
-  puts el
-  end
-
-  all(:xpath, "//h3[contains(text(), 'Reuse data from previous response')]/parent::section/descendant::img").each do |el|
-  puts el
-  end
-
-  all(:xpath, "//h3[contains(text(), 'Team up')]/parent::section/descendant::img").each do |el|
-  puts el
-  end
-
-  all(:xpath, "//h3[contains(text(), 'Receive reports')]/parent::section/descendant::img").each do |el|
-  puts el
-  end
-
-  all(:xpath, "//h3[contains(text(), 'Continuous integration')]/parent::section/descendant::img").each do |el|
-  puts el
-  end
-  
+Then(/^I Have Successfully Logged in/) do
+  find(:id, 'logoutButton').visible?
 end
