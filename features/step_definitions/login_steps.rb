@@ -1,29 +1,26 @@
-When(/^I am on Appimation home page/) do
+When(/^I Am On Appimation Home Page/) do
   visit('/')
   find(:id, 'start_button').visible?
   find(:id, 'login-b').visible?
   find(:id, 'signup-b').visible?
 end
 
-Then(/^I click Login/) do
+Then(/^I Click Login/) do
   find(:id, 'login-b').click
 end
 
-Then(/^I enter (.*) in Login email/) do |email|
+Then(/^I Enter (.*) In Login Email/) do |email|
   find(:xpath, '//div[@id = "login"]/descendant::input[@name = "login"]').send_keys email
 end
 
-Then(/^I enter (.*) in Login password/) do |password|
+Then(/^I Enter (.*) In Login Password/) do |password|
   find(:xpath, '//div[@id = "login"]/descendant::input[@name = "password"]').send_keys password
 end
 
-
-Then(/^I Login/) do
+Then(/^I Click on Login Button/) do
   find(:xpath, '//*[@id="login"]/form/button').click
-
 end
 
-Then(/^I am successfully logged in/) do
+Then(/^I Am Successfully Logged In/) do
   find(:id, 'logoutButton').visible?
-
 end
