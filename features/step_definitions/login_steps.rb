@@ -1,26 +1,36 @@
-When(/^I Am On Appimation Home Page/) do
-  visit('/')
-  find(:id, 'start_button').visible?
-  find(:id, 'login-b').visible?
-  find(:id, 'signup-b').visible?
+When(/^I am on Appimation home page/) do
+  @pages.page_home.load
+  @pages.page_home.visible?
 end
 
-Then(/^I Click Login/) do
-  find(:id, 'login-b').click
+Then(/^I click Try Now/) do
+  @pages.page_home.click_try_now
 end
 
-Then(/^I Enter (.*) In Login Email/) do |email|
-  find(:xpath, '//div[@id = "login"]/descendant::input[@name = "login"]').send_keys email
+Then(/^I enter (.*) in SignUp email/) do |email|
+  @pages.page_home.enter_signup_email(email)
 end
 
-Then(/^I Enter (.*) In Login Password/) do |password|
-  find(:xpath, '//div[@id = "login"]/descendant::input[@name = "password"]').send_keys password
+Then(/^I enter (.*) in SignUp passwords/) do |password|
+  @pages.page_home.enter_passwords(password)
 end
 
-Then(/^I Click on Login Button/) do
-  find(:xpath, '//*[@id="login"]/form/button').click
+Then(/^I enter (.*) in SignUp project name/) do |name|
+  @pages.page_home.enter_project_name(name)
 end
 
-Then(/^I Am Successfully Logged In/) do
-  find(:id, 'logoutButton').visible?
+Then(/^I cancel SignUp/) do
+  @pages.page_home.click_signup_cancel  
+end
+
+Then(/^I submit signup details/) do
+  @pages.page_home.submit_signup("email@test.com", "parole", "testProject")
+end
+
+Then(/^I login to my account/) do
+  @pages.page_home.success_login("auto_apimation@mailinator.com", "Parole12")
+end
+
+Then(/^I am logged in successfully/) do
+  @pages.page_project.visible?
 end
