@@ -1,9 +1,8 @@
 class Tests
-
   def initialize(pages)
     @pages = pages
-  end
-
+  end 
+  
   def signup_tests
     @signup_tests ||= SignupTest.new(@pages)
     @signup_tests
@@ -13,5 +12,4 @@ class Tests
     @login_tests ||= LoginTest.new(@pages)
     @login_tests
   end
-
 end

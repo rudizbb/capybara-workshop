@@ -1,6 +1,6 @@
 class SignupTest
   def initialize(pages)
-    @pages = pages
+      @pages = pages
   end
 
   def load_home_page
@@ -9,12 +9,35 @@ class SignupTest
   end
 
   def open_signup_form_submit_details
-    @pages.page_home.click_try_now
-    @pages.page_home.submit_signup("demo@demo.com", "parole112", "demo")
+      @pages.page_home.click_try_now
+      @pages.page_home.submit_signup(Users.signup_user)
   end
 
   def home_page_visible?
     @pages.page_home.visible?
   end
 
+  def signup_without_email
+    @pages.page_home.click_try_now
+    @pages.page_home.submit_signup(Users.signup_without_email)
+  end
+
+  def signup_without_passwords
+    @pages.page_home.click_try_now
+    @pages.page_home.submit_signup(Users.signup_without_passwords)
+  end
+
+  def signup_unsuccessful
+    @pages.page_home.signup_dialog
+  end
+
+  def signup_long_email
+    @pages.page_home.click_try_now
+    @pages.page_home.submit_signup(Users.signup_long_email)
+  end
+
+  def signup_long_project_name
+    @pages.page_home.click_try_now
+    @pages.page_home.submit_signup(Users.signup_long_project_name)
+  end
 end

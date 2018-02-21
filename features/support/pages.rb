@@ -8,5 +8,4 @@ class Pages
     @page_project ||= ProjectPage.new
     @page_project
   end
-
 end
