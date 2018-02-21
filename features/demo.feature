@@ -1,10 +1,9 @@
 Feature: Demo Feature
 
-    Scenario: Open SignUp Page
-        Given I am on Appimation home page
-        When I submit signup details
-
-    Scenario: Successul login
-        Given I am on Appimation home page
-        When I login to my account
-        Then I am logged in successfully
+    Scenario: Successful Login
+        Given I Am On Appimation Home Page
+        When I Click Login
+        And I Enter demo@demo.com In Login Email
+        And I Enter parole112 In Login Password
+        Then I Click on Login Button
+        Then I Am Successfully Logged In 
