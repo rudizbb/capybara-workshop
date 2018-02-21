@@ -1,8 +1,8 @@
 class ProjectPage < BasePage
     #attr_accessor :button_start
   def initialize
-    @dash_email = Element.new(:xpath, '//div[@id = "userEmail"]/descendant::span[contains(text(), "auto_apimation@mailinator.com")]')
-    @dash_project = Element.new(:xpath, '//div[@id = "dropdownMenu1"]/descendant::a[contains(text(), "Capybara-automation")]')
+    @dash_email = Element.new(:xpath, '//div[@id = "userEmail"]/descendant::span[contains(text(), "demo@demo.com")]')
+    @dash_project = Element.new(:xpath, '//div[@id = "dropdownMenu1"]/descendant::a[contains(text(), "demo")]')
     @dash_test_title = Element.new(:id, 'testDataTitle')
     @dash_steps_frame = Element.new(:id, 'steps')
     @dash_case_frame = Element.new(:id, 'cases')
