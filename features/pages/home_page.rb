@@ -24,10 +24,6 @@ class HomePage < BasePage
     @button_start.click
   end
 
-  def enter_signup_email(email)
-    @input_signup_email.send_keys(email)
-  end
-
   def enter_passwords(password)
     enter_password(password)
     enter_password_again(password)
@@ -41,20 +37,23 @@ class HomePage < BasePage
     @input_signup_password_again.send_keys password
   end
 
+  def enter_signup_email(email)
+    @input_signup_email.send_keys(email)
+  end
+
   def enter_project_name(name)
     @input_signup_project_name.send_keys name
   end
 
-  def click_signup_cancel
+  def cancel_signup
     @button_signup_cancel.click
   end
 
   def submit_signup(email, password, project_name)
-    click_try_now
     enter_signup_email email
     enter_passwords password
     enter_project_name project_name
-    click_signup_cancel
+    cancel_signup
   end
 
   def click_login
